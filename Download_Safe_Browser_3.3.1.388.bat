@@ -20,7 +20,7 @@ if '%errorlevel%' NEQ '0' (
     pushd "%CD%"
     CD /D "%~dp0"
 :--------------------------------------
-echo "Create Folder on Desktop with name and start downloads and install SafeExamBrowser on Desktop"
+echo "Create Folder on Desktop with Name and start downloads and install SafeExamBrowser on Desktop"
 mkdir %USERPROFILE%\DESKTOP\SafeExamBrowser"
 cd  %USERPROFILE%\DESKTOP\SafeExamBrowser"
 echo.
