@@ -20,21 +20,28 @@ if '%errorlevel%' NEQ '0' (
     pushd "%CD%"
     CD /D "%~dp0"
 :--------------------------------------
-echo "Create Folder on Desktop with name and start downloads and install SafeExamBrowser on Desktop"
-mkdir %USERPROFILE%\DESKTOP\SafeExamBrowser"
-cd  %USERPROFILE%\DESKTOP\SafeExamBrowser"
-echo.
-echo "Download SafeExamBrowser_3.3.1.388.exe it's 194.234 MB maybe take two minutes so please wait"
-curl "https://moodle2.bgu.ac.il/moodle/pluginfile.php/2319634/course/section/532495/SEB_3.3.1.388.exe" --output SEB_3.3.1.388.exe
-echo.
-echo "Download SebClientSettings.seb it's 2.93 KB"
-curl "https://moodle2.bgu.ac.il/moodle/pluginfile.php/2625864/mod_resource/content/4/SebClientSettings.seb" --output SebClientSettings.seb
-echo.
-set "SafeExamBrowserInstallDir=%PROGRAMFILES%\SafeExamBrowser"
-%USERPROFILE%\DESKTOP\SafeExamBrowser\SEB_3.3.1.388.exe /silent /norestart TargetDir="%SafeExamBrowserInstallDir%"
+if exist %USERPROFILE%\Downloads\SEB_3.3.1.388.exe (
+    echo "Found SEB_3.3.1.388.exe" no need to Download again
+    echo Start Install SafeExamBrowser "please wait a moment until finish install"
+    set "SafeExamBrowserInstallDir=%PROGRAMFILES%\SafeExamBrowser"
+    %USERPROFILE%\Downloads\SEB_3.3.1.388.exe /silent /norestart TargetDir="%SafeExamBrowserInstallDir%"
+) else (
+    echo "Download SafeExamBrowser_3.3.1.388.exe it's 194.234 MB maybe take two minutes please wait until finish Download"
+    curl "https://moodle2.bgu.ac.il/moodle/pluginfile.php/2319634/course/section/532495/SEB_3.3.1.388.exe" --output %USERPROFILE%\Downloads\SEB_3.3.1.388.exe
+    echo Start Install SafeExamBrowser "please wait a minutes"
+    set "SafeExamBrowserInstallDir=%PROGRAMFILES%\SafeExamBrowser"
+    %USERPROFILE%\Downloads\SEB_3.3.1.388.exe /silent /norestart TargetDir="%SafeExamBrowserInstallDir%"
+)
+echo "finish installing"
+if exist %USERPROFILE%\Downloads\SebClientSettings.seb (
+    echo "Found SebClientSettings.seb" no need to Download again
+) else (
+    echo "Download SebClientSettings.seb it's 2.93 KB please wait until finish Download"
+    curl "https://moodle2.bgu.ac.il/moodle/pluginfile.php/2625864/mod_resource/content/4/SebClientSettings.seb" --output %USERPROFILE%\Downloads\SebClientSettings.seb
+)
 echo.
 cd %PROGRAMFILES%\SafeExamBrowser\Application\
-start SafeExamBrowser.exe %USERPROFILE%\DESKTOP\SafeExamBrowser\SebClientSettings.seb
+start SafeExamBrowser.exe %USERPROFILE%\Downloads\SebClientSettings.seb
 echo.
 cp -r "C:\ProgramData\Microsoft\Windows\Start Menu\Programs\Safe Exam Browser.lnk" "%USERPROFILE%\DESKTOP"
 echo.
@@ -45,8 +52,8 @@ echo.
 echo.
 echo //TODO
 echo Convert a Batch File to EXE - IExpress 2.0
-echo fix open with (SebClientSettings) regedit
-echo but get (Access is denied.)
+echo fix open with "(SebClientSettings)" regedit
+echo but get "(Access is denied.)"
 echo after put command inside script idk why 
 echo still look around to fix it 
 echo or just look for other way
