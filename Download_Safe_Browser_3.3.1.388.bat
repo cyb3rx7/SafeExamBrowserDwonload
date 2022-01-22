@@ -20,7 +20,7 @@ if '%errorlevel%' NEQ '0' (
     pushd "%CD%"
     CD /D "%~dp0"
 :--------------------------------------
-echo "Create Folder on Desktop with Name and start downloads and install SafeExamBrowser on Desktop"
+echo "Create Folder on Desktop with name and start downloads and install SafeExamBrowser on Desktop"
 mkdir %USERPROFILE%\DESKTOP\SafeExamBrowser"
 cd  %USERPROFILE%\DESKTOP\SafeExamBrowser"
 echo.
@@ -43,4 +43,11 @@ echo "Thanks you "
 echo "have a Nice Day!"
 echo.
 echo.
+echo //TODO
+echo Convert a Batch File to EXE - IExpress 2.0
+echo fix open with (SebClientSettings) regedit
+echo but get (Access is denied.)
+echo after put command inside script idk why 
+echo still look around to fix it 
+echo or just look for other way
 pause
