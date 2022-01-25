@@ -43,7 +43,7 @@ echo.
 cd %PROGRAMFILES%\SafeExamBrowser\Application\
 start SafeExamBrowser.exe %USERPROFILE%\Downloads\SebClientSettings.seb
 echo.
-cp -r "C:\ProgramData\Microsoft\Windows\Start Menu\Programs\Safe Exam Browser.lnk" "%USERPROFILE%\DESKTOP"
+xcopy "C:\ProgramData\Microsoft\Windows\Start Menu\Programs\Safe Exam Browser.lnk" "%USERPROFILE%\DESKTOP" /s
 echo.
 echo.
 echo "Thanks you "
