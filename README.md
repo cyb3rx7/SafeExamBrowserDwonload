@@ -8,6 +8,11 @@ and install the configure with SafeExamBrowser
 after that going and create shortcut on Desktop for the SafeExamBrowser
 work perfect now 
 
+# SebClientSettings
+SebClientSettings fix open with other application
+so now open only with Safe Exam Browser
+and get back the stock icon also
+
 just left to convert from bat to exe and start test from there here we done
 but i choose to not do that because the Antivirus because the compiler of convert .bat to .exe
 
