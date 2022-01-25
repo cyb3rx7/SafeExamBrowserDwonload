@@ -1,5 +1,6 @@
-# SafeExamBrowserDwonload
+# WhoIam
 hey my name is mohammed i'm IT 
+# SafeExamBrowserDwonload
 here i start my script with batch 
 it's about check and if not exist so download SafeExamBrowser v3.3.1.388
 then also check and if not exist so downloads the configure file name SebClientSettings.seb
